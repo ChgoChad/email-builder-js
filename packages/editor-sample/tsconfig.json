@@ -3,7 +3,9 @@
   "compilerOptions": {
     "target": "es2015",
     "module": "esnext",
-    "outDir": "dist"
+    "outDir": "dist",
+    "lib": ["es2017", "dom"],
+    "forceConsistentCasingInFileNames": true
   },
   "exclude": ["dist"]
 }

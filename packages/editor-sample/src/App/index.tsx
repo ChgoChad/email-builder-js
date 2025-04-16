@@ -2,10 +2,10 @@ import React from 'react';
 
 import { Stack, useTheme } from '@mui/material';
 
-import { useInspectorDrawerOpen, useSamplesDrawerOpen } from '../documents/editor/EditorContext';
+import { useInspectorDrawerOpen, useFilesDrawerOpen } from '../documents/editor/EditorContext';
 
 import InspectorDrawer, { INSPECTOR_DRAWER_WIDTH } from './InspectorDrawer';
-import SamplesDrawer, { SAMPLES_DRAWER_WIDTH } from './SamplesDrawer';
+import FilesDrawer, { FILES_DRAWER_WIDTH } from './FilesDrawer';
 import TemplatePanel from './TemplatePanel';
 
 function useDrawerTransition(cssProperty: 'margin-left' | 'margin-right', open: boolean) {
@@ -18,20 +18,20 @@ function useDrawerTransition(cssProperty: 'margin-left' | 'margin-right', open: 
 
 export default function App() {
   const inspectorDrawerOpen = useInspectorDrawerOpen();
-  const samplesDrawerOpen = useSamplesDrawerOpen();
+  const filesDrawerOpen = useFilesDrawerOpen();
 
-  const marginLeftTransition = useDrawerTransition('margin-left', samplesDrawerOpen);
+  const marginLeftTransition = useDrawerTransition('margin-left', filesDrawerOpen);
   const marginRightTransition = useDrawerTransition('margin-right', inspectorDrawerOpen);
 
   return (
     <>
       <InspectorDrawer />
-      <SamplesDrawer />
+      <FilesDrawer />
 
       <Stack
         sx={{
           marginRight: inspectorDrawerOpen ? `${INSPECTOR_DRAWER_WIDTH}px` : 0,
-          marginLeft: samplesDrawerOpen ? `${SAMPLES_DRAWER_WIDTH}px` : 0,
+          marginLeft: filesDrawerOpen ? `${FILES_DRAWER_WIDTH}px` : 0,
           transition: [marginLeftTransition, marginRightTransition].join(', '),
         }}
       >

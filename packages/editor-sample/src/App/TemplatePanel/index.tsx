@@ -12,7 +12,7 @@ import {
   useSelectedScreenSize,
 } from '../../documents/editor/EditorContext';
 import ToggleInspectorPanelButton from '../InspectorDrawer/ToggleInspectorPanelButton';
-import ToggleSamplesPanelButton from '../SamplesDrawer/ToggleSamplesPanelButton';
+import ToggleFilesPanelButton from '../FilesDrawer/ToggleFilesPanelButton';
 
 import DownloadJson from './DownloadJson';
 import HtmlPanel from './HtmlPanel';
@@ -69,6 +69,8 @@ export default function TemplatePanel() {
         return <HtmlPanel />;
       case 'json':
         return <JsonPanel />;
+      default:
+        return null;
     }
   };
 
@@ -89,7 +91,7 @@ export default function TemplatePanel() {
         justifyContent="space-between"
         alignItems="center"
       >
-        <ToggleSamplesPanelButton />
+        <ToggleFilesPanelButton />
         <Stack px={2} direction="row" gap={2} width="100%" justifyContent="space-between" alignItems="center">
           <Stack direction="row" spacing={2}>
             <MainTabsGroup />
