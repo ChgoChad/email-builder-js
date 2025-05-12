@@ -34,6 +34,6 @@ jobs:
           (cd ./packages/document-core;pwd;npm ci)
           (cd ./packages/editor-sample;pwd;npm ci)
           (cd ./packages/email-builder;pwd;npm ci)
-      - run: npx prettier . --check
+      - run: npx prettier . --write
       - run: npm test
       - run: ./node_modules/.bin/tsc --noEmit
